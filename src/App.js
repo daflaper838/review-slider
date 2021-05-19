@@ -13,6 +13,9 @@ function App() {
     const[error,setError]= useState(false)
     const [list,setList] = useState([])
     const [range,setRange] = useState(10)
+    
+    
+    
 
     const isHex = (hex)=>{
     let RegExp = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i;
@@ -21,11 +24,11 @@ function App() {
   
   const handleSubmit = (e)=>{
     e.preventDefault();
-    const newRange= range;
-    console.log(newRange)
+    
+    const newRange=range;
     if (isHex(color)){
      
-      let colors =  new Values(color).all(parseInt(newRange,10));
+      let colors =  new Values(color).all(newRange);
       setList(colors)
     }
     
@@ -39,7 +42,7 @@ function App() {
         <input type='txt' value={color} placeholder='#f15025' onChange={(e)=>{setColor(e.target.value)}}/>
         <button type='submit' className='btn'>generate</button>
     
-        <input  className ='slider' type='range' min='1' max='20' value='10' value={range} onChange={(e)=>setRange(e.target.value)}></input>
+        <input  className ='slider' type='range' min='1' max='20' value='10' value={range} onChange={(e)=>setRange(parseInt(e.target.value,10)) }></input>
         
       </form>
     
@@ -49,7 +52,7 @@ function App() {
 
       {list.map((item,index)=>{
         
-        return <SingleColor key={index} {...item} index={index}/>
+        return <SingleColor key={index} {...item} index={index} length={list.length} />
       }) }
      
       
