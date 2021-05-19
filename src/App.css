@@ -70,5 +70,6 @@ form input:hover {
 
 .single-color {
   height: 100px;
-  color: red;
+  color: rgb(175, 95, 95);
+  padding: 10px;
 }
