@@ -47,8 +47,9 @@ function App() {
     </section>
     <section className='colors'>
 
-      {list.map((color,index)=>{
-        return <SingleColor key={index} {...color} index={index}/>
+      {list.map((item,index)=>{
+        
+        return <SingleColor key={index} {...item} index={index}/>
       }) }
      
       

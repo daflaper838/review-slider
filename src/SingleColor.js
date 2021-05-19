@@ -5,7 +5,7 @@
 
      const [alert,setAlert] = useState(false)
      const bcg = rgb.join(',')
-    console.log(rgb)
+   
     
     const handleClick = (e)=>{
         
@@ -34,6 +34,6 @@ const  rgbToHex =(r, g, b)=> {
   return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
-alert(rgbToHex(0, 51, 255));
+
 
 export default SingleColor
