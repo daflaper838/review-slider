@@ -73,3 +73,16 @@ form input:hover {
   color: rgb(175, 95, 95);
   padding: 10px;
 }
+
+.slider {
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0);
+}
+
+.slider:hover {
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0);
+}
+.slider::-moz-range-track {
+  color: blueviolet;
+}
