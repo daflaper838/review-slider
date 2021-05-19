@@ -9,15 +9,24 @@ import Values from 'values.js'
 
 function App() {
   
-    const[color,setColor] = useState('#fff')
+    const[color,setColor] = useState('#225544')
     const[error,setError]= useState(false)
     const [list,setList] = useState([])
+
+    const isHex = (hex)=>{
+    let RegExp = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i;
+    return RegExp.test(hex)
+}
   
   const handleSubmit = (e)=>{
     e.preventDefault();
-    let colors =  new Values(color).all(20);
-    console.log(colors)
-    if (!color) return
+    if (isHex(color)){
+      console.log('color is hex')
+      let colors =  new Values(color).all(10);
+      setList(colors)
+    }
+    
+ 
     
   }
   return <>
@@ -30,9 +39,11 @@ function App() {
 
     </section>
     <section className='colors'>
-      <h4>List goes here</h4>
-   
-      <SingleColor/>
+
+      {list.map((color,index)=>{
+        return <SingleColor key={index} {...color} index={index}/>
+      }) }
+     
       
     </section>
   </>

@@ -69,7 +69,6 @@ form input:hover {
 }
 
 .single-color {
-  width: 100px;
   height: 100px;
-  background-color: aqua;
+  color: red;
 }
